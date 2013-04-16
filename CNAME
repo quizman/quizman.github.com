@@ -1,4 +1,2 @@
-$ dig www.quizmaniandevil.co.uk +nostats +nocomments +nocmd
-# ;www.quizmaniandevil.co.uk.                 IN      A
-# www.quizmaniandevil.co.uk.          3592    IN      CNAME   quizman.github.io.
-# quizman.github.io.      43192   IN      A       204.232.175.78
+quizmaniandevil.co.uk
+
