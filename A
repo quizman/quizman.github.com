@@ -1,5 +1,1 @@
-$ dig quizmaniandevil.co.uk +nostats +nocomments +nocmd
-# Look up DNS record for example.com
-
-# ;quizmaniandevil.co.uk.                    IN      A
-# quizmaniandevil.co.uk.             3259    IN      A       204.232.175.78
+h
