@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="Creative_stylesheet.css"/>
+	
+	<script type="text/javascript" charset="utf-8">
+	
+	function jumpBox(list) {
+   location.href = list.options[list.selectedIndex].value
+   }
+
+//Daniel C. Peterson, 1997  All Rights Reserved
+//User fee required for commercial pages
+//email webmaster@webwinder.com for a quote
+
+function init() 
+              {
+
+
+              questions = new Array()
+              questions[1] = "Which of these means slow?"
+              questions[2] = "Which of these means quick/cheerful?"
+              questions[3] = "Which of these means very quiet?"
+              questions[4] = "Which of these is the English word for Legato?"
+              questions[5] = "Da Capo directs the performer to do what?"
+              questions[6] = "Which of these means very loud?"
+              questions[7] = "If Pianissimo means very quiet what does Piano mean?"
+              questions[8] = "So, what does Forte mean?"
+              questions[9] = "A Musician gradually playing louder can be said to be performing a..."
+              questions[10] = "If I said BPM What would I most likely be referring to?"
+              questions[11] = "Cantabile refers to what style?"
+              questions[12] = "Decrescendo (or decresc.) and diminuendo (or dim.) can both mean what?"
+              questions[13] = "If mezzo forte means 'half' loud, what does mezzo mean?"
+              questions[14] = "What does mezzo piano mean?"
+              questions[15] = "Which of these means detached?"
+             
+
+              answerA = new Array()
+              answerA[1] = "Crescendo"
+              answerA[2] = "Allergro"
+              answerA[3] = "Piano"
+              answerA[4] = "Slowly"
+              answerA[5] = "Gradually Get Louder"
+              answerA[6] = "Forte"
+              answerA[7] = "Quiet"
+              answerA[8] = "Held Back"
+              answerA[9] = "Accelerando"
+              answerA[10] = "Tempo/Speed"
+              answerA[11] = "Arrogant"
+              answerA[12] = "Gradually Getting Quieter"
+              answerA[13] = "Extremely"
+              answerA[14] = "Moderately Quiet"
+              answerA[15] = "Adagio"
+             
+
+              answerB = new Array()
+              answerB[1] = "Fine"
+              answerB[2] = "Lento"
+              answerB[3] = "Pianissimo"
+              answerB[4] = "Very Quiet"
+              answerB[5] = "Gradually Get Quieter"
+              answerB[6] = "Largo"
+              answerB[7] = "Very Loud"
+              answerB[8] = "Smoothly"
+              answerB[9] = "Crescendo"
+              answerB[10] = "Dynamics"
+              answerB[11] = "Gentle"
+              answerB[12] = "Gradually Getting Louder"
+              answerB[13] = "Quite"
+              answerB[14] = "Very Quiet"
+              answerB[15] = "Staccato"
+              
+
+              answerC = new Array()
+              answerC[1] = "Adagio"
+              answerC[2] = "Andante"
+              answerC[3] = "Forte"
+              answerC[4] = "Smoothly"
+              answerC[5] = "Play Very Loudly"
+              answerC[6] = "Fortissimo"
+              answerC[7] = "At Medium Speed"
+              answerC[8] = "Quiet"
+              answerC[9] = "Decrescendo"
+              answerC[10] = "Timbre"
+              answerC[11] = "Singing"
+              answerC[12] = "Holding Back"
+              answerC[13] = "Half"
+              answerC[14] = "Somewhat Quiet"
+              answerC[15] = "Legato"
+              
+
+              answerD = new Array()
+              answerD[1] = "Cantabile"
+              answerD[2] = "Legato"
+              answerD[3] = "Fortissimo"
+              answerD[4] = "In a Singing Style"
+              answerD[5] = "Repeat From the Beginning"
+              answerD[6] = "Decrescendo"
+              answerD[7] = "Smoothly"
+              answerD[8] = "Loud"
+              answerD[9] = "Rallentando"
+              answerD[10] = "Style"
+              answerD[11] = "Regal"
+              answerD[12] = "Gradually Speeding up"
+              answerD[13] = "Very"
+              answerD[14] = "As Quiet as Possible"
+              answerD[15] = "Allegro"
+              
+
+              rightAns = new Array
+              rightAns[1] = "c"
+              rightAns[2] = "a"
+              rightAns[3] = "b"
+              rightAns[4] = "c"
+              rightAns[5] = "d"
+              rightAns[6] = "c"
+              rightAns[7] = "a"
+              rightAns[8] = "d"
+              rightAns[9] = "b"
+              rightAns[10] = "a"
+              rightAns[11] = "c"
+              rightAns[12] = "a"
+              rightAns[13] = "c"
+              rightAns[14] = "a"
+              rightAns[15] = "b"
+              
+
+              reference = new Array()
+              reference[1] = "c) Adagio"
+              reference[2] = "a) Allegro"
+              reference[3] = "b) Pianissimo"
+              reference[4] = "c) Smoothly"
+              reference[5] = "d) Repeat From the Beginning"
+              reference[6] = "c) Forte"
+              reference[7] = "a) Quiet"
+              reference[8] = "d) Loud"
+              reference[9] = "b) Crescendo"
+              reference[10] = "a) Tempo/Speed"
+              reference[11] = "c) Singing"
+              reference[12] = "a) Gradually Getting Quieter"
+              reference[13] = "c) Half"
+              reference[14] = "a) Moderately Quiet (although it literally means 'half' quiet)"
+              reference[15] = "b)"
+           
+
+document.getElementById("submitButton").style.display="none"; 
+
+document.getElementById("reset").style.display="none"; 
+
+document.getElementById("r").style.display="none";
+
+document.getElementById("s").style.display="none";
+
+document.getElementById("t").style.display="none";
+
+
+              } 
+
+
+function nextQuestion(form)
+
+//set the total number of questions equal to quizend
+
+{   var quizEnd = eval(15 * 1);
+
+document.getElementById("r").style.display="none";
+
+
+    if(form.questNo.value == quizEnd) {
+
+       form.question.value = "";
+
+       form.choiceA.value = "";
+
+       form.choiceB.value = "";
+
+       form.choiceC.value = "";
+
+       form.choiceD.value = "";
+
+       form.yourChoice.value = "";
+       
+       form.results.value = "End of Quiz.  Your final results are listed below.";
+       
+       document.getElementById("submitButton").style.display="none";
+       
+       form.questNo.value = "";
+       				
+        } else { document.getElementById("reset").style.display="inline"; 
+
+    if(form.questNo.value == "") {form.questNo.value = 2} else {
+    
+       form.questNo.value = eval(form.questNo.value) + 1;
+
+    }
+
+
+    form.question.value = questions[form.questNo.value];
+
+    form.choiceA.value = answerA[form.questNo.value];
+
+    form.choiceB.value = answerB[form.questNo.value];
+
+    form.choiceC.value = answerC[form.questNo.value];
+
+    form.choiceD.value = answerD[form.questNo.value];
+
+    form.yourChoice.value = "";
+
+    form.results.value = "";
+
+    if(form.myScore.value == "") {form.myScore.value = 0; } else {
+                                                  form.myScore.value = form.myScore.value; }
+
+   }
+
+}
+
+   function checkAnswer(form) {
+      
+      var myScore = 0;
+      var curve = 0;
+
+	document.getElementById("submitButton").style.display="none"; 
+	document.getElementById("r").style.display="inline";
+
+      if(form.results.value != "") {form.results.value = "Sorry, we can only take your first answer.  In order to retry this question you will have to start the quiz over.  Click on ''Next Question'' to continue."; }
+
+      else if(form.yourChoice.value == rightAns[form.questNo.value]) {
+      form.myScore.value = eval(form.myScore.value) + eval(1);
+      form.results.value = "Congratulations!  You are correct. That brings your cumulative score to " + form.myScore.value + " out of a possible " + form.questNo.value + ".  Click on ''Next Question'' to continue."; } else {
+      
+      form.results.value = "Sorry, you are incorrect. The correct answer is " + reference[form.questNo.value] + " This brings your cumulative score to " + form.myScore.value + " out of a possible " + form.questNo.value + ".  Click on ''Next Question'' to continue." }
+
+   
+   curve = form.myScore.value / form.questNo.value;
+
+   form.percent.value = parseInt(curve * 100,10);
+   
+   if(curve > .90) {form.grade.value = "A"; } else if(curve > .80) {form.grade.value = "B"; } else if(curve > .70) {form.grade.value = "C"; } else if(curve > .60) {form.grade.value = "D"; } else {form.grade.value = "F"; }
+    }
+
+function yourAnswer(form) {
+
+	document.getElementById("submitButton").style.display="inline"; 
+	document.getElementById("r").style.display="none";
+}
+
+function clearForm(form)
+
+{
+
+    
+    form.questNo.value = "";
+    form.question.value = "";
+    form.choiceA.value = "";
+    form.choiceB.value = "";
+    form.choiceC.value = "";
+    form.choiceD.value = "";
+    form.yourChoice.value = "";
+    form.results.value = "";
+    form.myScore.value = "";
+    form.percent.value = "";
+    form.grade.value = "";
+    document.getElementById("begin").style.display="inline";
+    document.getElementById("s").style.display="none";
+	document.getElementById("t").style.display="none";
+	
+}
+
+function chooseA()
+{
+document.quiz.yourChoice.value = "a";
+}		
+
+function chooseB(){
+
+document.quiz.yourChoice.value = "b";
+
+}
+function chooseC(){
+
+document.quiz.yourChoice.value = "c";
+
+}
+function chooseD(){
+document.quiz.yourChoice.value = "d";
+}
+
+function show() { 
+				document.getElementById("a").style.display="inline";
+				document.getElementById("b").style.display="inline";
+				document.getElementById("c").style.display="inline";
+				document.getElementById("d").style.display="inline";
+				document.getElementById("s").style.display="inline";
+				document.getElementById("t").style.display="inline"
+				
+				 
+}
+
+function hide() { 
+				document.getElementById("a").style.display="none";
+				document.getElementById("b").style.display="none";
+				document.getElementById("c").style.display="none";
+				document.getElementById("d").style.display="none";
+				document.getElementById("r").style.display="none";
+}
+
+function hide3() { 
+
+document.getElementById("begin").style.display="none"; 
+document.getElementById("reset").style.display="inline";
+}
+
+function firstQuest(form) {
+
+if(form.questNo.value == "") {form.questNo.value = 1} else {
+    
+       form.questNo.value = eval(form.questNo.value) + 1;
+
+    }
+	form.question.value = questions[form.questNo.value];
+
+    form.choiceA.value = answerA[form.questNo.value];
+
+    form.choiceB.value = answerB[form.questNo.value];
+
+    form.choiceC.value = answerC[form.questNo.value];
+
+    form.choiceD.value = answerD[form.questNo.value];
+
+    form.yourChoice.value = "";
+
+    form.results.value = "";
+    
+    form.myScore.value = 0;
+}
+
+function hide2() { 
+					document.getElementById("reset").style.display="none";
+					document.getElementById("submitButton").style.display="none";
+}
+
+	
+	</script>
+	<title> Beginning Design</title>
+</head>
+
+<body onLoad="init()" >
+
+	<div id="outerbody">
+				
+	
+				<div id="innerbody"> <!--Quiz will be in here--> 
+				<form name="quiz" method="POST">
+  <div align="left"><table BORDER="0" id="s">
+   
+    <tr>
+      <!--<td><b>Question:</b></td>--> <td ALIGN="LEFT"><input TYPE="TEXT" NAME="questNo" SIZE="4" readonly></td><div width="50px" align="center"></div>
+      <td><center><p><textarea cols="40" name="question" rows="2" style="white-space:pre-wrap" readonly class="textarea"></textarea><!--<input type="text" size="80" ROWS="2" name="question"
+      </input>--></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"></td>
+      <td><div align="center"><ul>
+				<li>a)
+						<input TYPE="button" onclick="chooseA(); yourAnswer(this.form);" Name="choiceA" size="75" id="a"/></li>
+				<li>b)
+						<input TYPE="button" onclick="chooseB(); yourAnswer(this.form);" NAME="choiceB" SIZE="75" id="b"/></li>
+				<li>c)
+						<input TYPE="Button" onclick="chooseC(); yourAnswer(this.form);" NAME="choiceC" SIZE="75" id="c"/></li>
+				<li>d)
+						<input TYPE="button" onclick="chooseD(); yourAnswer(this.form);" NAME="choiceD" SIZE="75" id="d"/><li>
+					</ul></td>
+    </tr>
+</table>
+
+   
+<table border="0" id="t">
+	<tr>
+      <td ALIGN="RIGHT">Your choice: <input id="yourChoice" TYPE="TEXT" NAME="yourChoice" SIZE="4" readonly /></td>
+
+    
+      <td COLSPAN="2"><div align="center"> 
+      <!--<input TYPE="button" VALUE="Check Current Answer" onClick="checkAnswer(this.form)"/>
+      <input TYPE="button" id="r" VALUE="Next Question" onClick="nextQuestion(this.form); show();"/> 
+      <input TYPE="reset" VALUE="Start Over" onClick="clearForm(this.form); hide()"/>-->
+      <button class="btn pilla" type="button" id="submitButton" onClick="checkAnswer(this.form)"><span><span>Submit Answer</span></span></button>
+      <button class="btn pillb" type="button" id="r" onClick="nextQuestion(this.form); show();"><span><span>Next Question</span></span></button>
+      
+      <button class="btn pillc" type="reset" id="reset" onClick="clearForm(this.form); hide(); hide2()"><span><span>Start Over</span></span></button>
+      
+      
+      </td>
+    </tr>
+    <tr>
+      <td ALIGN="LEFT">Results:</td>
+      <td><div align="LEFT"><p><textarea COLS="75" ROWS="3" name="results" readonly class="textarea2"
+      wrap="virtual"></textarea></td>
+    </tr>
+    <tr>
+      <td ALIGN="RIGHT"></td>
+      <td>Points: <input  readonly TYPE="TEXT" NAME="myScore" SIZE="4">&nbsp;&nbsp;<b>Percentage: </b><input readonly
+      TYPE="TEXT" NAME="percent" SIZE="6">&nbsp;&nbsp;<b>Letter Grade: </b><input readonly TYPE="TEXT"
+      NAME="grade" SIZE="6"></td>
+    </tr>
+  </table>
+  <center><button class="btn pillc" type="button" id="begin" onClick="hide3(); firstQuest(this.form); show();"><span><span>Begin</span></span></button></center>
+    </div>
+</form>
+
+					
+
+				</div>
+
+				<div id="heading">
+									<ul class="ul">
+									<li class="li"><a href="index.html">About</a></li>
+									<li class="li"><a href="Creative_media_and%20online_Archiving%20v2.html">Quiz</a></li>
+									<li class="li"><a href="Contact_page.html">Contact</a></li>
+									</ul>
+									
+<a href="http://www.youtube.com/watch?feature=player_embedded&list=PLvge_NP8nRFYLNkDVodH5fOLsZ-Y-4IcJ&v=vIp0nCcqThA" target="http://www.youtube.com/watch?feature=player_embedded&list=PLvge_NP8nRFYLNkDVodH5fOLsZ-Y-4IcJ&v=vIp0nCcqThA">Open Playlist In A New Tab</a>
+<!--<object width="150" height="150" class="crop" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsPlaylist8522536080" name="gsPlaylist8522536080">
+<param name="movie" value="http://grooveshark.com/widget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" />
+<param name="flashvars" value="hostname=grooveshark.com&playlistID=85225360&p=0&bbg=343f69&bth=343f69&pfg=343f69&lfg=343f69&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" />
+<object type="application/x-shockwave-flash" data="http://grooveshark.com/widget.swf" width="150" height="150">
+<param name="wmode" value="window" /><param name="allowScriptAccess" value="always" />
+<param name="flashvars" value="hostname=grooveshark.com&playlistID=85225360&p=0&bbg=343f69&bth=343f69&pfg=343f69&lfg=343f69&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" />
+<span><a href="http://grooveshark.com/search/playlist?q=Website%20Eriq%20Beoku-Betts" title="Website by Eriq Beoku-Betts on Grooveshark">Website by Eriq Beoku-Betts on Grooveshark</a></span>
+</object></object>-->
+
+<!--<object width="250" height="140" class="crop" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsPlaylist852253603" name="gsPlaylist852253603">
+<param name="movie" value="http://grooveshark.com/widget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" />
+<param name="flashvars" value="hostname=grooveshark.com&playlistID=85225360&p=0&bbg=87bcea&bth=87bcea&pfg=87bcea&lfg=87bcea&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" />
+<object type="application/x-shockwave-flash" data="http://grooveshark.com/widget.swf" width="250" height="140">
+<param name="wmode" value="window" /><param name="allowScriptAccess" value="always" />
+<param name="flashvars" value="hostname=grooveshark.com&playlistID=85225360&p=0&bbg=87bcea&bth=87bcea&pfg=87bcea&lfg=87bcea&bt=ffffff&pbg=ffffff&pfgh=ffffff&si=ffffff&lbg=ffffff&lfgh=ffffff&sb=ffffff&bfg=666666&pbgh=666666&lbgh=666666&sbh=666666" />
+<span><a href="http://grooveshark.com/search/playlist?q=Website%20Eriq%20Beoku-Betts" title="Website by Eriq Beoku-Betts on Grooveshark">Website by Eriq Beoku-Betts on Grooveshark</a></span>
+</object></object>-->
+
+<!--<iframe width="200" height="115" src="http://www.youtube.com/embed/videoseries?list=PLvge_NP8nRFYLNkDVodH5fOLsZ-Y-4IcJ" frameborder="0" allowfullscreen></iframe>-->
+</div>
+	
+</body>
+
+</html>
